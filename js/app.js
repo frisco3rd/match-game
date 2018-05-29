@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-
+ // storing all cards in array
 let cards = ['fa-diamond', 'fa-diamond',
              'fa-paper-plane-o', 'fa-paper-plane-o',
              'fa-anchor', 'fa-anchor',
@@ -11,9 +11,9 @@ let cards = ['fa-diamond', 'fa-diamond',
              'fa-bicycle', 'fa-bicycle',
              'fa-bomb', 'fa-bomb',
             ]
+// function to turn cards into HTML
 function generateCard(card){
-  return`<li class="card" data-card="fa-di"><i class="fa ${card}"></i></li>`;
-
+  return `<li class="card"><i class="fa ${card}"></i></li>`;
 }
 /*
  * Display the cards on the page
@@ -48,6 +48,18 @@ function shuffle(array) {
 *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
 *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
 */
+
+
+function initGame(){
+  let deck = document.querySelector('.deck');
+  let cardHTML = shuffle(cards).map(function(card){
+    return generateCard(card);
+  });
+   deck.innerHTML= cardHTML.join(' ');
+}
+
+initGame();
+
 const allCards = document.querySelectorAll('.card');//Makes cards flip by selecting all classes of .card
 let openCards = [];//Number of open cards
 //Loops through every card using forEach

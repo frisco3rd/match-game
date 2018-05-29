@@ -2,7 +2,19 @@
  * Create a list that holds all of your cards
  */
 
+let cards = ['fa-diamond', 'fa-diamond',
+             'fa-paper-plane-o', 'fa-paper-plane-o',
+             'fa-anchor', 'fa-anchor',
+             'fa-bolt', 'fa-bolt',
+             'fa-cube', 'fa-cube',
+             'fa-leaf', 'fa-leaf',
+             'fa-bicycle', 'fa-bicycle',
+             'fa-bomb', 'fa-bomb',
+            ]
+function generateCard(card){
+  return`<li class="card" data-card="fa-di"><i class="fa ${card}"></i></li>`;
 
+}
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -48,7 +60,7 @@ allCards.forEach(function(card){
       card.classList.add('open', 'show');
 
         // Checks for card match
-        let firstCardType = openCards[0]
+        let firstCardType = openCards[0].dataset.card;
 
         // if cards dont match they flip back over
         if(openCards.length === 2){ // If open cards equals 2 

@@ -36,11 +36,29 @@ function shuffle(array) {
 *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
 *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
 */
-//Makes cards flip by selecting all classes of .card
-const allCards = document.querySelectorAll('.card');
+const allCards = document.querySelectorAll('.card');//Makes cards flip by selecting all classes of .card
+let openCards = [];//Number of open cards
 //Loops through every card using forEach
 allCards.forEach(function(card){
-card.addEventListener('click',function(e){
-card.classList.add('open', 'show');
-});
-});
+  card.addEventListener('click',function(e){
+
+
+      if(!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')){
+      openCards.push(card);//pushes any open card to openCards array
+      card.classList.add('open', 'show');
+
+        // Checks for card match
+        let firstCardType = openCards[0]
+
+        // if cards dont match they flip back over
+        if(openCards.length === 2){ // If open cards equals 2 
+          setTimeout(function(){ // then run this timeout function
+            openCards.forEach(function(card){ // function will start since it equals 2
+              card.classList.remove('open','show');
+            });
+            openCards = [];
+          },1000);
+        }
+      }
+    });
+  });

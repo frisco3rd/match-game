@@ -71,6 +71,9 @@ initGame();
 
 const allCards = document.querySelectorAll(".card"); //Makes cards flip by selecting all classes of .card
 let openCards = []; //Array of open cards
+const moveCounter = document.querySelector('.moves');//create move counter
+let moves = 0;
+
 allCards.forEach(function(card) { //Loops through every card using forEach
   card.addEventListener("click", function(e) {
     if (!card.classList.contains("open") && !card.classList.contains("show") &&!card.classList.contains("match")) {
@@ -97,6 +100,8 @@ allCards.forEach(function(card) { //Loops through every card using forEach
             });
             openCards = [];
           }, 320);// speed fortimeout function
+          moves += 1;
+					moveCounter.innerHTML = moves;
         }
       }
     }

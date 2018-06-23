@@ -34,15 +34,15 @@ function generateCard(card) {
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
   var currentIndex = array.length,
-    temporaryValue,
-    randomIndex;
+      temporaryValue,
+      randomIndex;
 
   while (currentIndex !== 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
   }
 
   return array;
@@ -62,48 +62,93 @@ function shuffle(array) {
 function initGame() {
   let deck = document.querySelector(".deck");
   let cardHTML = shuffle(cards).map(function(card) {
-    return generateCard(card);
+      return generateCard(card);
   });
   deck.innerHTML = cardHTML.join(" ");
 }
 
+function hideStar() {
+  const starList = document.querySelectorAll('.stars li');
+  for (star of starList) {
+      star.style.display = "none";
+  }
+}
+hideStar();
+
+function checkScore() {
+  if (moves === 15 || moves === 23) {
+      removeStar();
+  }
+}
 initGame();
 
 const allCards = document.querySelectorAll(".card"); //Makes cards flip by selecting all classes of .card
 let openCards = []; //Array of open cards
-const moveCounter = document.querySelector('.moves');//create move counter
+const moveCounter = document.querySelector('.moves'); //create move counter
 let moves = 0;
 
 allCards.forEach(function(card) { //Loops through every card using forEach
   card.addEventListener("click", function(e) {
-    if (!card.classList.contains("open") && !card.classList.contains("show") &&!card.classList.contains("match")) {
-      openCards.push(card); //pushes any open card to openCards array
-      card.classList.add("open", "show");
+      if (!card.classList.contains("open") && !card.classList.contains("show") && !card.classList.contains("match")) {
+          openCards.push(card); //pushes any open card to openCards array
+          card.classList.add("open", "show");
 
-      if (openCards.length === 2) {
-        if(openCards[0].dataset.card == openCards[1].dataset.card){ // Checks if both cards match
-          openCards[0].classList.add("match");// adds match class to first card
-          openCards[0].classList.add("open");// adds open class to first card 
-          openCards[0].classList.add("show");// adds show class to first card
+          if (openCards.length === 2) {
+              if (openCards[0].dataset.card == openCards[1].dataset.card) { // Checks if both cards match
+                  openCards[0].classList.add("match"); // adds match class to first card
+                  openCards[0].classList.add("open"); // adds open class to first card 
+                  openCards[0].classList.add("show"); // adds show class to first card
 
-          openCards[1].classList.add("match");// add match class to second card
-          openCards[1].classList.add("open");// adds open class to second card
-          openCards[1].classList.add("show");// adds show class to second card
+                  openCards[1].classList.add("match"); // add match class to second card
+                  openCards[1].classList.add("open"); // adds open class to second card
+                  openCards[1].classList.add("show"); // adds show class to second card
 
-          openCards = [];// If cards match they enter this array
-        } else {
+                  openCards = []; // If cards match they enter this array
+              } else {
 
-        // If no match hide
-          setTimeout(function() { // Set time out speed
-            openCards.forEach(function(card) {
-              card.classList.remove("open", "show");
-            });
-            openCards = [];
-          }, 320);// speed fortimeout function
-          moves += 1;
-					moveCounter.innerHTML = moves;
-        }
+                  // If no match hide
+                  setTimeout(function() { // Set time out speed
+                      openCards.forEach(function(card) {
+                          card.classList.remove("open", "show");
+                      });
+                      openCards = [];
+                  }, 320); // speed fortimeout function
+                  moves += 1;
+                  moveCounter.innerHTML = moves;
+
+              }
+          }
       }
-    }
   });
 });
+
+let stars = document.querySelectorAll('.stars li'); // Selects stars li
+
+let starCount = 3;
+
+function starCounter() {
+
+  for (let a = 0; a < 20; a++) {
+      if (moves > 20) {
+
+          for (star of stars) {
+              stars[2].style.display = 'none';
+              //stars[2].style.display = 'none';
+              starCount = 0;
+          }
+
+      } else if (moves > 15) {
+
+          for (star of stars) {
+              stars[1].style.display = 'none';
+              starCount = 1;
+          }
+      } else if (moves > 10) {
+          for (star of stars) {
+              stars[0].style.display = 'none';
+              starCount = 2;
+
+          }
+      }
+  }
+}

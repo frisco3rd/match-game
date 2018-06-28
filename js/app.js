@@ -119,6 +119,7 @@ refresh.addEventListener('click',function restart(){
   let openCards = []; //Array of open cards
   const moveCounter = document.querySelector('.moves'); //create move counter
   let moves = 0;
+  let matches = 0;
   
   allCards.forEach(function(card) { //Loops through every card using forEach
 	card.addEventListener("click", function(e) {
@@ -137,6 +138,7 @@ refresh.addEventListener('click',function restart(){
 					openCards[1].classList.add("show"); // adds show class to second card
   
 					openCards = []; // If cards match they enter this array
+					matches += 1 ;
 
 				} else {
   
@@ -188,7 +190,8 @@ function starCounter() {
 	}
 }
 function endGame(){
-	if (openCards === 8){
+	if (matches === 8){
 		stopTimer();
+		alert('gameover')
 	}
 }

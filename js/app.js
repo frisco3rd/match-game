@@ -26,9 +26,19 @@ let second = 0;// variable for seconds
 let minute = 0;//varriable for minutes
 let timer;//empty timer variable 
 
-deck.addEventListener("click", function startTimer() {
-	timer = setInterval(insertTime, 1500);
+
+let timerStarted = false;//timer started
+
+deck.addEventListener("click", function(){
+    if(!timerStarted){
+        timerStarted = true;
+        startTimer();
+    }
 });
+function startTimer() {
+    timer = setInterval(insertTime, 1000);
+}
+
 function stopTimer() {
 	clearInterval(timer);
 	second = 0;
@@ -48,9 +58,9 @@ function insertTime() {
 }
 //Reload page to restart game
 const refresh = document.querySelector('.restart');
-refresh.addEventListener('click', function restart() {
-	location.reload(false);
-});
+refresh.addEventListener('click',function restart(){
+	location.reload();
+})
   // function to turn cards into HTML
   function generateCard(card) {
 	return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`; // Adds class to card
@@ -97,15 +107,8 @@ refresh.addEventListener('click', function restart() {
 	});
 	deck.innerHTML = cardHTML.join(" ");
   }
-  
-  function hideStar() {
-	const starList = document.querySelectorAll('.stars li');
-	for (star of starList) {
-		star.style.display = "none";
-	}
-  }
-  hideStar();
-  
+    
+
   function checkScore() {
 	if (moves === 15 || moves === 23) {
 		removeStar();
@@ -148,7 +151,40 @@ refresh.addEventListener('click', function restart() {
 					moveCounter.innerHTML = moves;
   
 				}
+				starCounter();
+
 			}
+			gameOver();
 		}
 	});
   });
+  let stars = document.querySelectorAll('.stars li');
+
+let starCount = 3;
+
+function starCounter() {
+
+	for (let a = 0; a < 20; a++) {
+		if (moves > 20) {
+
+			for (star of stars) {
+				stars[2].style.display = 'none';
+				//stars[2].style.display = 'none';
+				starCount = 0;
+			}
+
+		} else if (moves > 15) {
+
+			for (star of stars) {
+				stars[1].style.display = 'none';
+				starCount = 1;
+			}
+		} else if (moves > 10) {
+			for (star of stars) {
+				stars[0].style.display = 'none';
+				starCount = 2;
+
+			}
+		}
+	}
+}

@@ -26,7 +26,6 @@ let second = 0;// variable for seconds
 let minute = 0;//varriable for minutes
 let timer;//empty timer variable 
 
-
 let timerStarted = false;//timer started
 
 deck.addEventListener("click", function(){
@@ -138,6 +137,7 @@ refresh.addEventListener('click',function restart(){
 					openCards[1].classList.add("show"); // adds show class to second card
   
 					openCards = []; // If cards match they enter this array
+
 				} else {
   
 					// If no match hide
@@ -149,12 +149,11 @@ refresh.addEventListener('click',function restart(){
 					}, 320); // speed fortimeout function
 					moves += 1;
 					moveCounter.innerHTML = moves;
-  
 				}
-				starCounter();
 
+				starCounter();
 			}
-			gameOver();
+			endGame();
 		}
 	});
   });
@@ -186,5 +185,10 @@ function starCounter() {
 
 			}
 		}
+	}
+}
+function endGame(){
+	if (openCards === 8){
+		stopTimer();
 	}
 }

@@ -46,6 +46,11 @@ function insertTime() {
 	// display time
 	document.querySelector('.timer-output').innerHTML = "0" + minute + ":" + second;
 }
+//Reload page to restart game
+const refresh = document.querySelector('.restart');
+refresh.addEventListener('click', function restart() {
+	location.reload(false);
+});
   // function to turn cards into HTML
   function generateCard(card) {
 	return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`; // Adds class to card

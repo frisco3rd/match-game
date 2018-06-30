@@ -197,7 +197,8 @@ function endGame(){
 
 function toggleModal(){
 const modal = document.querySelector('.modal');
-	/*document.querySelector('.modal_time').innerHTML = `Time = ${insertTimer}`;*/
+let timeOut = document.querySelector('.timer-output').innerHTML;
+	document.querySelector('.modal_time').innerHTML = `Time = ${timeOut}`;
 	modal.style.display ='inline';
 
 }

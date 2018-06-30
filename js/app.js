@@ -53,8 +53,9 @@ function insertTime() {
 		second = "00";
 	}
 	// display time
-	document.querySelector('.timer-output').innerHTML = "0" + minute + ":" + second;
+	 document.querySelector('.timer-output').innerHTML = "0" + minute + ":" + second;
 }
+
 //Reload page to restart game
 const refresh = document.querySelector('.restart');
 refresh.addEventListener('click',function restart(){
@@ -164,7 +165,6 @@ refresh.addEventListener('click',function restart(){
 let starCount = 3;
 
 function starCounter() {
-
 	for (let a = 0; a < 20; a++) {
 		if (moves > 20) {
 
@@ -192,6 +192,12 @@ function starCounter() {
 function endGame(){
 	if (matches === 8){
 		stopTimer();
-		alert('gameover')
-	}
+		toggleModal();	}
+}
+
+function toggleModal(){
+const modal = document.querySelector('.modal');
+	/*document.querySelector('.modal_time').innerHTML = `Time = ${insertTimer}`;*/
+	modal.style.display ='inline';
+
 }

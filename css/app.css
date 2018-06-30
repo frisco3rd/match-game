@@ -125,6 +125,7 @@ h1 {
 	height:100%;
     width:100%;
     background: rgba(0, 48, 151, 0.4);
+    display: none;
 }
 .modal_body{
     position: relative;

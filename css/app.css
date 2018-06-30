@@ -162,3 +162,8 @@ font-size: 2rem;
     width: 60px;
     height: 30px;
 }
+#stars-display{
+    display: inline;
+    list-style-type: none;
+
+}

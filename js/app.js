@@ -197,8 +197,14 @@ function endGame(){
 
 function toggleModal(){
 const modal = document.querySelector('.modal');
-let timeOut = document.querySelector('.timer-output').innerHTML;
-	document.querySelector('.modal_time').innerHTML = `Time = ${timeOut}`;
+let timerResults = document.querySelector('.timer-output').innerHTML;
+let movesResults = document.querySelector('.moves').innerHTML;
+let starsResults = document.querySelector('.stars').write;
+
+	document.querySelector('.modal_time').innerHTML = `Time = ${timerResults}`;
+	document.querySelector('.modal_stars').write = `Stars = ${starsResults}`;
+	document.querySelector('.modal_moves').innerHTML = `Moves = ${movesResults}`;
+
 	modal.style.display ='inline';
 
 }

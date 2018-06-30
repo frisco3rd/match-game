@@ -162,8 +162,7 @@ font-size: 2rem;
     width: 60px;
     height: 30px;
 }
-#stars-display{
-    display: inline;
+.modal_stars{
     list-style-type: none;
-
+    display: flex;
 }

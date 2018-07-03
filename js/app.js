@@ -144,7 +144,8 @@ refresh.addEventListener('click',function restart(){
   
 					openCards = []; // If cards match they enter this array
 					matches += 1 ;
-
+					moves += 1;
+					moveCounter.innerHTML = moves;
 				} else {
   
 					// If no match hide

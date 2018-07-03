@@ -57,10 +57,14 @@ function insertTime() {
 }
 
 //Reload page to restart game
+
 const refresh = document.querySelector('.restart');
+
 refresh.addEventListener('click',function restart(){
-	location.reload();
-})
+	location.reload(false);
+  
+});
+
   // function to turn cards into HTML
   function generateCard(card) {
 	return `<li class="card" data-card="${card}"><i class="fa ${card}"></i></li>`; // Adds class to card
@@ -192,20 +196,23 @@ function starCounter() {
 function endGame(){
 	if (matches === 8){
 		stopTimer();
-		toggleModal();	}
-}
+      toggleModal();
+			}
+};
 
 function toggleModal(){
 const modal = document.querySelector('.modal');
 let timerResults = document.querySelector('.timer-output').innerHTML;
 let movesResults = document.querySelector('.moves').innerHTML;
 let starsResults = document.querySelector('.stars').innerHTML;
-
 	document.querySelector('.modal_time').innerHTML = `Time = ${timerResults}`;
 	document.querySelector('.modal_stars').innerHTML = `Stars = ${starsResults}`;
 	document.querySelector('.modal_moves').innerHTML = `Moves = ${movesResults}`;
+  modal.style.display ='inline';
+};
+  //function to replay game
+	document.querySelector('.replay_button').addEventListener('click',()=>{
+	location.reload(false);
+    initGame();
 
-
-}
-
-
+  })

@@ -1,4 +1,3 @@
-
 html {
     box-sizing: border-box;
 }
@@ -118,14 +117,15 @@ h1 {
  */
 
 .modal{
-	position: absolute;;
-	z-index:1;
+	position: absolute;
 	left:0;
 	top:0;
 	height:100%;
-    width:100%;
-    background: rgba(0, 48, 151, 0.4);
-    display: none;
+  width:100%;
+  background: rgba(0, 48, 151, 0.4);
+  z-index:1;
+  display:none;
+
 }
 .modal_body{
     position: relative;
@@ -136,15 +136,12 @@ h1 {
     background: #ffffff; 
 }
 .modal_heading{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;    
+  justify-content: space-between;
+    text-align: center;
     border-bottom: 1px solid gray;
-}
-.modal_close{
-font-weight: bold;
-font-size: 2rem;
+  
 }
 .modal_stats{
     display: flex;

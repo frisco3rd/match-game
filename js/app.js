@@ -143,8 +143,7 @@ refresh.addEventListener('click',function restart(){
 					openCards[1].classList.add("show"); // adds show class to second card
   
 					openCards = []; // If cards match they enter this array
-					matches += 1;
-					moves +=1;
+					matches += 1 ;
 
 				} else {
   

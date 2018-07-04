@@ -2,19 +2,16 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+- [Instructions](#instructions)
+- [Built With](#built with)
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+Clone/download the repo and open index.html in your browser. Find the card matches by clicking the cards. Earn 3 stars if finding all the matches under 10 moves 2 stars if matched under 15 moves earm 1 star if matched under 20 moves earn 0 if it takes more than 20 moves. Once all cards have been matches player will recieve an update of how long it took, how many stars earned and how many moves the player took. Player then can choose to play the game again,which will restart the board.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Built With
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+HTML 5
+Font Awesome
+CSS
+JavaScript/ES6 syntax

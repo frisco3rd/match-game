@@ -4,6 +4,8 @@
 
 - [Instructions](#instructions)
 - [Built-With](#built-with)
+- [Acknowledgments](#Acknowledgments)
+
 
 ## Instructions
 
@@ -15,3 +17,8 @@ HTML 5
 Font Awesome
 CSS
 JavaScript/ES6 syntax
+
+## Acknowledgments
+
+Udacity Slack Channel 
+Mentor P.Njoku

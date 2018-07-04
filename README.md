@@ -20,5 +20,5 @@ JavaScript/ES6 syntax
 
 ## Acknowledgments
 
-Udacity Slack Channel 
-Mentor P.Njoku
+*Udacity Slack Channel 
+*Mentor P.Njoku

@@ -14,11 +14,11 @@ Clone/download the repo and open index.html in your browser. Find the card match
 ## Built With
 
 HTML 5
-Font Awesome
-CSS
-JavaScript/ES6 syntax
+- Font Awesome
+- CSS
+- JavaScript/ES6 syntax
 
 ## Acknowledgments
 
-*Udacity Slack Channel 
-*Mentor P.Njoku
+- Udacity Slack Channel 
+- Mentor P.Njoku
